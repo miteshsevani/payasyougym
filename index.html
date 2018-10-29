@@ -3,20 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PAUG</title>
-    <style>
-      body {
-        background-color: #f8f8f8;
-      }
+    <style>      
       /*
       Add additional styles here
       Feel free to change the existing style too.
       */      
-      #calendar {        
+      #calendar {
         display: flex;
         flex-direction: column;
         border: 2px solid #000000;
+        word-break: break-word;
       }      
       .header-wrapper {
         font-family: 'Arial';
@@ -24,27 +22,26 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 8px;        
+        padding: 0 8px;
       }
       .previous,
       .next {
         text-decoration: none;
         color: green;
       }
-      .month {        
-        text-transform: uppercase;        
+      .month {
+        text-transform: uppercase;
         align-self: center;
         font-size: 60px;
       }
       .days,
       .dates{
         display: flex;
-        flex-direction: row;        
       }
       .days > div,
       .dates > div {
         display: flex;
-        width: calc(100%/7);        
+        width: calc(100%/7);
         padding: 8px;
         border-top: 2px solid #000000;
         border-right: 2px solid #000000;
@@ -55,7 +52,6 @@
       .dates > div:nth-child(n+2):nth-child(-n+6) {
         background: beige;
       }
-      
       .days > div:last-child,
       .dates > div:last-child {
         border-right: 0;
@@ -64,10 +60,10 @@
         background: #DDDDDD;
         font-size: 30px;
       }
-      .days > div {        
+      .days > div {
         justify-content: center;
       }
-      .dates {        
+      .dates {
         font-size: 20px;
       }
       .date-wrapper {
@@ -76,14 +72,16 @@
       }
       .event {
         display: flex;
-        flex-direction: column;        
-        font-size: 15px;        
+        flex-direction: column;
+        font-size: 15px;
         padding: 4px;
         margin: 4px 0;
         cursor: pointer; 
         border: 1px solid #AAAAAA;
         border-radius: 3px;
-      }      
+      }
+
+      /* Hide descript and actions until hover */
       .description,
       .actions {
         display:none;
@@ -92,7 +90,9 @@
       .event:hover > .actions {
         display: block;
         margin-top: 8px;
-      }      
+      }
+
+      /* Buttons */
       button {
         padding: 4px 6px;
         color: #FFFFFF;
@@ -100,7 +100,7 @@
       }
       .add {
         background: green;
-        margin: 16px 0;        
+        margin: 16px 0;
       }
       .edit {
         background: darkorange;
@@ -112,35 +112,40 @@
         background: firebrick;
       }
 
-      /* LABELS */
-      .pleasure { background: lightblue; }t
-      .business { background: darkseagreen; }
-      .health { background: lightpink; }
-      .danger { background: #cc5252; color: #FFFFFF; }
+      /* Labels */
+      .pleasure { 
+        background: lightblue; 
+      }
+      .business { 
+        background: darkseagreen; 
+      }
+      .health { 
+        background: lightpink; 
+      }
+      .danger { 
+        background: #d62d2d; 
+        color: #FFFFFF; 
+      }
 
+      /* Mobile device styling */
       @media (max-width: 767px) {
         .calendar {
           word-break: break-word;
-        }
+        }        
         .month,
         .days > div {
           font-size: 20px;
-        }         
+        }
       }
     </style>
   </head>
-  <body>
-    <!--
-    Add additional markup here.
-
-    Feel free to change the existing markup too.
-    -->    
+  <body>    
     <button class="add">Add Event</button>
     <div id="calendar">
       <div class="header-wrapper">
-        <span><a class="previous" href=""><< Prevous</a></span>
+        <a class="previous" href="#" title="Previous" rel="prev">&lt;&lt; Prevous</a>
         <div class="month">January 2020</div>
-        <span><a class="next" href="">Next >></a></span>
+        <a class="next" href="#" title="next" rel="next">Next &gt;&gt;</a>
       </div>
       <div class="days">
         <div>Sun</div>
@@ -158,7 +163,7 @@
         <div class="date-wrapper">
           <div>1</div>
           <div class="event pleasure">
-            <div class="title">Party <span class="time">@15:00</span></div>            
+            <div class="title">Party <span class="time">@15:00</span></div>
             <div class="description">New years day fancy dress party</div>
             <div class="actions">
               <button class="edit">Edit</button>
@@ -176,7 +181,7 @@
         <div class="date-wrapper">
           <div>6</div>
           <div class="event business">
-            <div class="title">Work <span class="time">@9:00</span></div>            
+            <div class="title">Work <span class="time">@9:00</span></div>
             <div class="description">First day back. Meeting with client.</div>
             <div class="actions">
               <button class="edit">Edit</button>
@@ -198,8 +203,8 @@
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
             </div>
-          </div>          
-        </div>        
+          </div>
+        </div>
       </div>
       <div class="dates">
         <div>12</div>
@@ -209,14 +214,14 @@
         <div class="date-wrapper">
           <div>16</div>
           <div class="event pleasure">
-            <div class="title">Bowling <span class="time">@18:00</span></div>            
+            <div class="title">Bowling <span class="time">@18:00</span></div>
             <div class="description">Bowling and dinner with the lads</div>
             <div class="actions">
               <button class="edit">Edit</button>
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
             </div>
-          </div>          
+          </div>
         </div>
         <div>17</div>
         <div>18</div>
@@ -227,21 +232,21 @@
         <div class="date-wrapper">
           <div>21</div>
           <div class="event health">
-            <div class="title">Gym <span class="time">@8:00</span></div>            
+            <div class="title">Gym <span class="time">@8:00</span></div>
             <div class="actions">
               <button class="edit">Edit</button>
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
             </div>
-          </div>          
-          <div class="event">
+          </div>
+          <div class="event business">
             <div class="title">Team Lunch <span class="time">@13:00</span></div>
             <div class="actions">
               <button class="edit">Edit</button>
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
             </div>
-          </div>          
+          </div>
           <div class="event pleasure">
             <div class="title">Cinemas <span class="time">@19:00</span></div>
             <div class="description">Watching Hunter Killer with uni mates</div>
@@ -250,21 +255,21 @@
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
             </div>
-          </div>          
+          </div>
         </div>
         <div>22</div>
-        <div>23</div>        
+        <div>23</div>
         <div class="date-wrapper">
           <div>24</div>
           <div class="event health">
-            <div class="title">Boot Camp <span class="time">@19:00</span></div>            
+            <div class="title">Boot Camp <span class="time">@19:00</span></div>
             <div class="description">In hyde park</div>
             <div class="actions">
               <button class="edit">Edit</button>
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
-            </div>   
-          </div>                 
+            </div>
+          </div>
         </div>
         <div>25</div>
       </div>
@@ -272,13 +277,13 @@
         <div class="date-wrapper">
           <div>26</div>
           <div class="event">
-            <div class="title">Car MOT <span class="time">@10:00</span></div>            
+            <div class="title">Car MOT <span class="time">@10:00</span></div>
             <div class="actions">
               <button class="edit">Edit</button>
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
-            </div>   
-          </div>                 
+            </div>
+          </div>
         </div>
         <div>27</div>
         <div>28</div>
@@ -291,8 +296,8 @@
               <button class="edit">Edit</button>
               <button class="duplicate">Duplicate</button>
               <button class="delete">Delete</button>
-            </div>   
-          </div>                 
+            </div>
+          </div>
         </div>
         <div>31</div>
         <div></div>
