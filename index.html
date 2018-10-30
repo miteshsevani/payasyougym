@@ -64,21 +64,21 @@
         justify-content: center;
       }
       .dates {
-        font-size: 20px;
+        font-size: 20px;      
+        height: 120px;
       }
       .date-wrapper {
         display: flex;
-        flex-direction: column;
+        flex-direction: column;        
+        overflow: auto;    
       }
-      .event {
-        display: flex;
-        flex-direction: column;
+      .event {        
         font-size: 15px;
         padding: 4px;
         margin: 4px 0;
         cursor: pointer; 
         border: 1px solid #AAAAAA;
-        border-radius: 3px;
+        border-radius: 3px;        
       }
 
       /* Hide descript and actions until hover */
@@ -248,7 +248,16 @@
             </div>
           </div>
           <div class="event pleasure">
-            <div class="title">Cinemas <span class="time">@19:00</span></div>
+            <div class="title">Dinner <span class="time">@19:00</span></div>
+            <div class="description">Booked table at Pizza Express</div>
+            <div class="actions">
+              <button class="edit">Edit</button>
+              <button class="duplicate">Duplicate</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
+          <div class="event pleasure">
+            <div class="title">Cinemas <span class="time">@20:00</span></div>
             <div class="description">Watching Hunter Killer with uni mates</div>
             <div class="actions">
               <button class="edit">Edit</button>
